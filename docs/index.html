@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="assets/demo.css" rel="stylesheet" />
+		<title>Demo: Page Load – ab-testing-toolkit</title>
+		<meta property="og:description" content="menu-toolkit" />
+	</head>
+	<body data-demo="basic">
+		<a class="screen-reader-text" href="#main">Skip to content</a>
+		<div class="site">
+			<header class="site-header">
+				<div class="site-header__inner">
+					<div class="site-branding">
+						<a href="https://github.com/evermade/ab-testing-toolkit" class="site-logo" aria-label="Evermade">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 270 270" width="64" height="64">
+								<path fill="#F04D37" d="M0 0h270v270H0z"/>
+								<path fill="#fff" d="M134.748 73.7339c-13.949-.1043-27.398 5.1741-37.535 14.7314-10.1368 9.5573-16.1761 22.6537-16.8549 36.5487H189.235c-.715-13.9-6.779-26.9892-16.929-36.5417-10.15-9.5525-23.603-14.8318-37.558-14.7384Zm85.532 74.6601H79.2372c2.228 13.263 9.1042 25.307 19.4039 33.986 10.2999 8.679 23.3539 13.43 36.8379 13.406 9.931.362 19.754-2.16 28.276-7.26 8.521-5.099 15.375-12.557 19.729-21.467h32.848c-13.354 35.921-41.474 54.926-82.072 54.926-11.548.213-23.019-1.905-33.726-6.227-10.7059-4.321-20.4256-10.757-28.5743-18.921-8.1488-8.163-14.5585-17.886-18.8439-28.583-4.2854-10.697-6.358-22.148-6.0933-33.664 0-49.9195 35.7237-87.59 87.7255-87.59 50.588 0 87.238 37.476 87.238 85.743.118 5.275-.489 10.541-1.804 15.651"/>
+							</svg>
+							<span>@evermade/ab-testing-toolkit</span>
+						</a>
+					</div>
+				</div>
+			</header>
+			<script type="module" src="assets/demo.js"></script>
+			<main id="main" class="site-main">
+				<article class="entry">
+					<div class="entry__content">
+						<h1>A/B Test on Page Load</h1>
+						<p>Test runs on page load. Check your console.</p>
+						<p><strong id="demo-basic">Waiting for result...</strong></p>
+						<div class="actions">
+							<button class="js-reset-saved-and-refresh">Reset saved variants</button>
+							<a class="button" href="?ab-test=demo-basic&ab-variant=variant-a">Variant A</a>
+							<a class="button" href="?ab-test=demo-basic&ab-variant=variant-b">Variant B</a>
+						</div>
+<div class="code-example">import { abTestManager } from "@evermade/ab-testing-toolkit";
+
+const abTest = abTestManager();
+
+abTest.register({
+	id: 'demo-basic',
+	name: 'Basic Demo',
+	debug: true,
+	variants: [
+		{
+			slug: 'variant-a',
+			name: 'Variant A',
+			onRun: () => {
+				document.getElementById('demo-basic').innerHTML = 'Variant A chosen';
+			},
+		},
+		{
+			slug: 'variant-b',
+			name: 'Variant B',
+			onRun: () => {
+				document.getElementById('demo-basic').innerHTML = 'Variant B chosen';
+			},
+		},
+	]
+});
+abTest.run('demo-basic');</div>
+					</div>
+				</article>
+			</main>
+			<div class="site-footer">
+				<p>
+					This is demo for the
+					<a href="https://github.com/evermade/ab-testing-toolkit">@evermade/ab-testing-toolkit</a>.
+				</p>
+				<p>
+					Other demos:
+					<a href="https://evermade.github.io/ab-testing-toolkit/trigger.html">Trigger</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
