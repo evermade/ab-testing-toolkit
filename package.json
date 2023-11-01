@@ -18,7 +18,8 @@
 		"compress": "gzip -9 -fkc dist/index.min.js > dist/index.min.js.gz",
 		"show": "ls -lh dist/index.min.js.gz | awk '{print \"Gzipped script size:\", $5\"B\"}'",
 		"size": "npm run build -- --silent && npm run compress --silent && npm run show && rm dist/index.min.js.gz",
-		"watch": "rollup -c -w"
+		"watch": "rollup -c -w",
+		"test": "echo \"No tests specified\" && exit 0"
 	},
 	"author": "Teemu Suoranta, Evermade",
 	"license": "MIT",
